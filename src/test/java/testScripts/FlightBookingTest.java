@@ -1,4 +1,5 @@
 package testScripts;
+
 import com.sun.javafx.PlatformUtil;
 
 import base.TestBase;
@@ -14,7 +15,7 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 public class FlightBookingTest extends TestBase {
-
+	WebDriver driver;
 
 	@Test
 	public void testThatResultsAppearForAOneWayJourney() {

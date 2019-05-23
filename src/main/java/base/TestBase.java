@@ -1,23 +1,29 @@
 package base;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import application.WebApplication;
+import configurations.Singleton;
+import driverManager.DriverSettings;
 
-import com.sun.javafx.PlatformUtil;
-
-@SuppressWarnings("restriction")
 public class TestBase {
-	
-	public WebDriver driver;
+
+	protected WebApplication webApplication;
+	DriverSettings settings;
+
+	public TestBase() {
+		webApplication = Singleton.getInstance(WebApplication.class);
+		settings = Singleton.getInstance(DriverSettings.class);
+	}
 
 	@BeforeSuite
 	public void globalSetup() {
-		setDriverPath();
-		driver = new ChromeDriver();
+		settings.setDriverPath();
+		// settings.webDriverType = "chrome";
+		webApplication.launch();
+
 	}
 
 	@BeforeMethod
@@ -32,7 +38,7 @@ public class TestBase {
 
 	@AfterSuite
 	public void globalTeardown() {
-
+		webApplication.dispose();
 	}
 
 	// @BeforeClass
@@ -53,19 +59,5 @@ public class TestBase {
 	// public void afterClass() {
 	//
 	// }
-	
-	private void setDriverPath() {
-		if (PlatformUtil.isMac()) {
-			System.setProperty("webdriver.chrome.driver", "chromedriver");
 
-		}
-		if (PlatformUtil.isWindows()) {
-			System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-
-		}
-		if (PlatformUtil.isLinux()) {
-			System.setProperty("webdriver.chrome.driver", "chromedriver_linux");
-
-		}
-	}
 }

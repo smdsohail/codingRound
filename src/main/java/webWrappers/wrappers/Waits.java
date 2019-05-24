@@ -5,6 +5,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import driverManager.DriverManager;
+import exceptionHandler.ExceptionHandler;
 import webWrappers.interfaces.IWaits;
 
 public class Waits implements IWaits {
@@ -23,8 +24,7 @@ public class Waits implements IWaits {
 			WebDriverWait wait = new WebDriverWait(DriverManager.getWebDriver(), time);
 			wait.until(ExpectedConditions.elementToBeClickable(locator));
 		} catch (Exception e) {
-			// CustomExceptionHandler.ExceptionHandler(e, "Failed Waiting For
-			// Element ::" + locator + " To Be Clickable");
+			ExceptionHandler.handle(e);
 		}
 	}
 
@@ -43,8 +43,7 @@ public class Waits implements IWaits {
 			WebDriverWait wait = new WebDriverWait(DriverManager.getWebDriver(), time);
 			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 		} catch (Exception e) {
-			// CustomExceptionHandler.ExceptionHandler(e, "Failed Waiting For
-			// Element ::" + locator + " To Be Present");
+			ExceptionHandler.handle(e);
 		}
 	}
 
@@ -62,8 +61,7 @@ public class Waits implements IWaits {
 			WebDriverWait wait = new WebDriverWait(DriverManager.getWebDriver(), time);
 			wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 		} catch (Exception e) {
-			// CustomExceptionHandler.ExceptionHandler(e, "Failed Waiting For
-			// Element ::" + locator + " To Be Visible");
+			ExceptionHandler.handle(e);
 		}
 	}
 

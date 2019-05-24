@@ -5,6 +5,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import driverManager.DriverManager;
+import exceptionHandler.ExceptionHandler;
 import webWrappers.interfaces.IActions;
 
 public class Actions implements IActions {
@@ -13,8 +14,7 @@ public class Actions implements IActions {
 		try {
 			DriverManager.getWebDriver().get(url);
 		} catch (Exception e) {
-			// CustomExceptionHandler.ExceptionHandler(e, "Exception occurred
-			// while navigating to URL ::" + url);
+			ExceptionHandler.handle(e);
 		}
 	}
 
@@ -31,8 +31,7 @@ public class Actions implements IActions {
 			element.sendKeys(value);
 			// log.info("Typing " + value + " to the locator " + locator);
 		} catch (Exception e) {
-			// CustomExceptionHandler.ExceptionHandler(e, "Exception while
-			// entering text to: " + locator);
+			ExceptionHandler.handle(e);
 		}
 	}
 
@@ -43,8 +42,7 @@ public class Actions implements IActions {
 			element.click();
 			// log.info("Click on: " + locator);
 		} catch (Exception e) {
-			// CustomExceptionHandler.ExceptionHandler(e, "Exception in clicking
-			// element: " + locator);
+			ExceptionHandler.handle(e);
 		}
 	}
 
@@ -55,8 +53,7 @@ public class Actions implements IActions {
 			element.clear();
 			// log.info("Clear text from the locator: " + locator);
 		} catch (Exception e) {
-			// CustomExceptionHandler.ExceptionHandler(e, "Exception while
-			// clearing text: " + locator);
+			ExceptionHandler.handle(e);
 		}
 	}
 
@@ -65,9 +62,7 @@ public class Actions implements IActions {
 		try {
 			element = DriverManager.getWebDriver().findElement(locator);
 		} catch (Exception e) {
-			// CustomExceptionHandler.ExceptionHandler(e, "Exception occurred
-			// while trying to find element using locator:"
-			// + locator + ", with RetryCount:" + retry);
+			ExceptionHandler.handle(e);
 		}
 		return element;
 	}
@@ -86,9 +81,7 @@ public class Actions implements IActions {
 		try {
 			element = DriverManager.getWebDriver().findElements(locator);
 		} catch (Exception e) {
-			// CustomExceptionHandler.ExceptionHandler(e, "Exception occurred
-			// while trying to find element using locator:"
-			// + locator + ", with RetryCount:" + retry);
+			ExceptionHandler.handle(e);
 		}
 		return element;
 	}
@@ -99,7 +92,7 @@ public class Actions implements IActions {
 		try {
 			text = DriverManager.getWebDriver().findElement(locator).getText();
 		} catch (Exception e) {
-			// TODO: handle exception
+			ExceptionHandler.handle(e);
 		}
 		return text;
 	}
@@ -111,9 +104,7 @@ public class Actions implements IActions {
 			DriverManager.getWebDriver().switchTo().frame(element);
 			//log.info("Switching to IFrame");
 		} catch (Exception e) {
-			// CustomExceptionHandler.ExceptionHandler(e,
-			// "Exception occurred while trying to switch into frame:" +
-			// locator);
+			ExceptionHandler.handle(e);
 		}
 	}
 

@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
+import exceptionHandler.ExceptionHandler;
 import webWrappers.interfaces.IVerifies;
 
 public class Verifies implements IVerifies {
@@ -21,7 +22,7 @@ public class Verifies implements IVerifies {
 			Assert.assertTrue(element != null,
 					"Validation Failed : Expected Element: " + by + ", is not present in the DOM.");
 		} catch (Exception e) {
-			// TODO: handle exception
+			ExceptionHandler.handle(e);
 		}
 
 	}
@@ -36,7 +37,7 @@ public class Verifies implements IVerifies {
 			element = actions.findElement(by);
 			Assert.assertTrue(element.isDisplayed(), "Validation Failed : Element is NOT Disabled : " + by);
 		} catch (Exception e) {
-			// TODO: handle exception
+			ExceptionHandler.handle(e);
 		}
 	}
 

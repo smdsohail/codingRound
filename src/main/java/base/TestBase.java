@@ -7,11 +7,14 @@ import org.testng.annotations.BeforeSuite;
 import application.WebApplication;
 import configurations.Singleton;
 import driverManager.DriverSettings;
+import logger.factory.LoggerFactory;
+import logger.interfaces.ILogger;
 
 public class TestBase {
 
 	protected WebApplication webApplication;
 	DriverSettings settings;
+	ILogger log;
 
 	public TestBase() {
 		webApplication = Singleton.getInstance(WebApplication.class);
@@ -20,6 +23,10 @@ public class TestBase {
 
 	@BeforeSuite
 	public void globalSetup() {
+		log = new LoggerFactory().getLoggerType("log4jlogger");
+		log = Singleton.getInstance(ILogger.class);
+		log.initializeLogger();
+		log.info("Execution Started");
 		settings.setDriverPath();
 		// settings.webDriverType = "chrome";
 		webApplication.launch();

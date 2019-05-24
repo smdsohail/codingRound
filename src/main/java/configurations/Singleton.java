@@ -7,7 +7,7 @@ import java.util.Map;
  * Class file represents setting the object instance into singleton and get the
  * object instance wherever required
  * 
- * @author Appu
+ * @author Sohail
  *
  */
 public class Singleton {

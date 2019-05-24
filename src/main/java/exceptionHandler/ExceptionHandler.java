@@ -34,7 +34,7 @@ public class ExceptionHandler {
 			Assert.fail("WebDriverException", e);
 			break;
 		default:
-			Assert.fail("Un Known exception");
+			Assert.fail("Exception");
 			break;
 		}
 

@@ -1,0 +1,16 @@
+First Commit:
+- Refactored the existing test scripts and executed
+- Added base package(which consist of Test Base and Page Base class)
+- Updated the dependencies in the pom as per the compatible versions
+- Updated chromedriver to latest
+- Removed files related to gradle
+
+Second Commit:
+- Added DriverManager, DriverSettings and Application
+- Added TestNG Listeners
+- Added We Wrappers - Actions, Waits and Verifies
+
+Third Commit:
+- Developed Page Objects and Test Scripts
+- Added few web actions
+- Executed the test scripts with all the code refactor

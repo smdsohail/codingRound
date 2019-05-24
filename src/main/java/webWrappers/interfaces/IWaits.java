@@ -10,8 +10,8 @@ public interface IWaits {
 	 * 
 	 * @param locator
 	 *            :: Locator for the web element
-	 * @param waitType
-	 *            :: Type of wait from WaitType
+	 * @param time
+	 *            :: Time in seconds
 	 */
 	void waitForElementToBeClickable(By locator, int time);
 
@@ -22,8 +22,8 @@ public interface IWaits {
 	 * 
 	 * @param locator
 	 *            :: Locator for the web element
-	 * @param waitType
-	 *            :: Type of wait from WaitType
+	 * @param time
+	 *            :: Time in seconds
 	 */
 	void waitForElementToBePresent(By locator, int time);
 
@@ -33,8 +33,8 @@ public interface IWaits {
 	 * 
 	 * @param locator
 	 *            :: Locator for the web element
-	 * @param waitType
-	 *            :: Type of wait from WaitType
+	 * @param time
+	 *            :: Time in seconds
 	 */
 	void waitForElementToBeVisible(By locator, int time);
 

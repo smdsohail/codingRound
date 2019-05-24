@@ -33,6 +33,7 @@ public class WebApplication implements Application {
 		DriverManager.setWebDriver(driver);
 		// Test Data
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
 	}
 
 	@Override

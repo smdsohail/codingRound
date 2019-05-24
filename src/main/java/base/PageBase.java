@@ -10,14 +10,14 @@ import webWrappers.wrappers.Waits;
 
 public class PageBase {
 
-	public IActions webActions;
-	public IWaits webWaits;
-	public IVerifies webVerifies;
+	public IActions actions;
+	public IWaits waits;
+	public IVerifies verifies;
 
 	public PageBase() {
-		webActions = Singleton.getInstance(Actions.class);
-		webWaits = Singleton.getInstance(Waits.class);
-		webVerifies = Singleton.getInstance(Verifies.class);
+		actions = Singleton.getInstance(Actions.class);
+		waits = Singleton.getInstance(Waits.class);
+		verifies = Singleton.getInstance(Verifies.class);
 	}
 
 }

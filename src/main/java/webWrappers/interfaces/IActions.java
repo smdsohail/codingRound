@@ -6,32 +6,35 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public interface IActions {
-	
+
 	/**
 	 * Method for navigating to URL
 	 * 
 	 * @param url
 	 */
 	void navigateToURL(String url);
+
 	/**
 	 * Method to perform sendkeys operation
 	 * 
 	 * @param locator
 	 */
 	void sendKeys(By locator, String value);
+
 	/**
 	 * Method to perform a click operation on the given element.
 	 * 
 	 * @param locator
 	 */
 	void click(By locator);
+
 	/**
 	 * Method to perform clear operation
 	 * 
 	 * @param locator
 	 */
 	void clear(By locator);
-	
+
 	/**
 	 * Method to find the given locator within the DOM. Returns the WebElement
 	 * if the element is present within the DOM. This method performs retry for
@@ -41,7 +44,7 @@ public interface IActions {
 	 * @param locator
 	 */
 	WebElement findElement(By locator);
-	
+
 	/**
 	 * Method to find the given locator within the DOM. Returns the List of
 	 * WebElements if the elements are present within the DOM. This method
@@ -52,5 +55,20 @@ public interface IActions {
 	 * @param locator
 	 */
 	List<WebElement> findElements(By locator);
+
+	/**
+	 * Method to get text from the given locator
+	 * 
+	 * @param locator
+	 * @return
+	 */
+	String getText(By locator);
+
+	/**
+	 * Method to switch to desired IFrame
+	 * 
+	 * @param locator
+	 */
+	public void switctoIFrame(By locator);
 
 }

@@ -8,8 +8,7 @@ import driverManager.DriverManager;
 import webWrappers.interfaces.IActions;
 
 public class Actions implements IActions {
-	
-	
+
 	public void navigateToURL(String url) {
 		try {
 			DriverManager.getWebDriver().get(url);
@@ -37,7 +36,6 @@ public class Actions implements IActions {
 		}
 	}
 
-
 	public void click(By locator) {
 		WebElement element;
 		try {
@@ -49,7 +47,6 @@ public class Actions implements IActions {
 			// element: " + locator);
 		}
 	}
-
 
 	public void clear(By locator) {
 		WebElement element;
@@ -94,6 +91,30 @@ public class Actions implements IActions {
 			// + locator + ", with RetryCount:" + retry);
 		}
 		return element;
+	}
+
+	@Override
+	public String getText(By locator) {
+		String text = null;
+		try {
+			text = DriverManager.getWebDriver().findElement(locator).getText();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return text;
+	}
+	
+	public void switctoIFrame(By locator) {
+		WebElement element;
+		try {
+			element = DriverManager.getWebDriver().findElement(locator);
+			DriverManager.getWebDriver().switchTo().frame(element);
+			//log.info("Switching to IFrame");
+		} catch (Exception e) {
+			// CustomExceptionHandler.ExceptionHandler(e,
+			// "Exception occurred while trying to switch into frame:" +
+			// locator);
+		}
 	}
 
 }

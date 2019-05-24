@@ -1,3 +1,17 @@
+
+
+Code Review Comments:
+- No reusability (Raw code).
+- No Exception handling .
+- No Proper locators - used * and number in the locator which are not suppose to.
+- Hard coded waits which are not suppose to put.
+- Trying to call Chrome driver before setting driver path which throws to error in the execution.
+- No implementation of Switching to frame when needed.
+- No Proper date picker handling.
+
+
+My Implementation:
+
 First Commit:
 - Refactored the existing test scripts and executed
 - Added base package(which consist of Test Base and Page Base class)
